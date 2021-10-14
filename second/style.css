@@ -1,0 +1,101 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  position: relative;
+  padding: 0.5em 1.5em;
+  background: lightgrey;
+  border-bottom: 2px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header img {
+  width: 3%;
+}
+header .nav-bar {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+header .nav-bar__item {
+  position: relative;
+  width: 27%;
+  padding: 1em;
+  background: white;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s;
+}
+header .nav-bar__item:hover {
+  cursor: pointer;
+  background: lightgrey;
+  transition: background 0.2s;
+}
+header .nav-bar__item:not(:nth-child(2)):active {
+  box-shadow: inset 0 0 13px 0 black;
+}
+header .nav-bar__item__dd {
+  position: absolute;
+  top: 85%;
+  left: 12%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: white;
+  border-radius: 1em;
+  box-shadow: 10px 8px 10px 5px #2a2a2a;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+  transition: all 0.3s;
+}
+header .nav-bar__item__dd__item {
+  padding: 1em;
+  border-bottom: 2px solid lightgrey;
+  list-style-type: none;
+}
+header .nav-bar__item__dd__item:first-child {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+header .nav-bar__item__dd__item:last-child {
+  border: none;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+header .nav-bar__item__dd__item:hover {
+  cursor: pointer;
+  box-shadow: inset 0 0 13px 0 lightgrey;
+}
+header .nav-bar__item__dd__item:active {
+  box-shadow: inset 0 0 13px 0 black;
+}
+header .nav-bar__item__dd__item::before {
+  content: '➤ ';
+  color: black;
+}
+header .nav-bar__item:hover .nav-bar__item__dd {
+  left: 15%;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+header .hallo-btn {
+  width: 10%;
+  padding: 1em;
+  background: white;
+  border: 2px solid black;
+  border-radius: 1em;
+}
+header .hallo-btn:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px lightgrey;
+  /*text-decoration: underline;*/
+}
+/*# sourceMappingURL=style.css.map */
