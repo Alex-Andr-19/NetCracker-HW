@@ -95,9 +95,17 @@
         <div class="task-window">
             <div class="task-window__task-list">
                 <div class="task-window__task-list__title">List</div>
+                <div class="task-window__task-list__content">
+                    <textarea name="test-text" id="test-text"
+                              class="task-window__task-list__content__textarea"
+                              cols="30" rows="10"
+                              placeholder="Input you text"></textarea>
+                    <button onclick="checkTop()" class="task-window__task-list__content__btn">Check</button>
+                </div>
             </div>
             <div class="task-window__task-list">
                 <div class="task-window__task-list__title">In Progress</div>
+                <div id="res-container" class="task-window__task-list__content"></div>
             </div>
             <div class="task-window__task-list">
                 <div class="task-window__task-list__title">Done</div>
@@ -107,12 +115,14 @@
 
     <footer>
         <div class="image-block">
-            <a href=""><img src="img/telegram.png" alt=""></a>
-            <a href=""><img src="img/github.png" alt=""></a>
-            <a href=""><img src="img/vk-social-network-logo.png" alt=""></a>
+            <a href="https://t.me/aleks_andr_19"><img src="img/telegram.png" alt=""></a>
+            <a href="https://github.com/Alex-Andr-19"><img src="img/github.png" alt=""></a>
+            <a href="https://vk.com/aleks_andr_19"><img src="img/vk-social-network-logo.png" alt=""></a>
         </div>
             <div class="water-mark">Created by @aleks_andr_19</div>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

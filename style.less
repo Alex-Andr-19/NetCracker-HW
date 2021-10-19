@@ -283,8 +283,6 @@ main {
 
       background: #FFE4A3;
 
-      color: white;
-
       &__title {
         min-height: 5%;
 
@@ -292,7 +290,21 @@ main {
 
         background: #F5CF73;
 
+        color: white;
         font-size: 2em;
+      }
+
+      &__content {
+        padding: 1em;
+
+        display: flex;
+        flex-direction: column;
+
+        &__btn {
+          width: 30%;
+
+          margin-top: 1em;
+        }
       }
     }
   }

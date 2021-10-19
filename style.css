@@ -192,13 +192,22 @@ main .task-window__task-list {
   width: 25%;
   height: 90%;
   background: #FFE4A3;
-  color: white;
 }
 main .task-window__task-list__title {
   min-height: 5%;
   padding: 0.5em;
   background: #F5CF73;
+  color: white;
   font-size: 2em;
+}
+main .task-window__task-list__content {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+main .task-window__task-list__content__btn {
+  width: 30%;
+  margin-top: 1em;
 }
 footer {
   position: relative;
