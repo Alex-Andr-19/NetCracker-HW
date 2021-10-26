@@ -1,0 +1,62 @@
+@node-width: 20px;
+
+
+body {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graph {
+  margin: 0 0 1em 0;
+}
+
+.node {
+  position: absolute;
+  bottom: calc(-@node-width/2);
+
+  width: @node-width;
+
+  background: black;
+  border: 2px solid red;
+  border-radius: 50%;
+
+  color: white;
+}
+.node.root {
+  top: 0;
+  right: calc(50% - @node-width/2);
+  bottom: unset;
+}
+
+.branch {
+  position: relative;
+
+  min-width: 50px;
+  min-height: calc(@node-width + 5px);
+
+  display: flex;
+
+  &__left,
+  &__right {
+    width: 50%;
+    border-top: 2px solid black;
+  }
+
+  &__left {
+    border-left: 2px solid black;
+
+    .node {
+      left: calc(-@node-width/2);
+    }
+  }
+  &__right {
+    border-right: 2px solid black;
+
+    .node {
+      right: calc(-@node-width/2);
+    }
+  }
+}

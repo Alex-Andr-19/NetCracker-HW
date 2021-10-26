@@ -38,6 +38,11 @@ function findNode(root, value) {
 }
 
 
+function addNodePage() {
+    console.log('Empty function')
+}
+
+
 let secondNode = {key: 2, left: {}, right: {}}
 
 let tree = {
