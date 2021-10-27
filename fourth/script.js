@@ -1,63 +1,74 @@
-// tree is an Obj, that contains nodes and self-deep
-// node is an Obj, that contains self-key, self-value and children-list.
-// This list is contains child-nodes (only 2)
-
-function copyObj(obj) {
-    return Object.assign({}, obj)
+// Class of Node
+// -- constructor
+function Node(key=null, left={}, right={}) {
+    this.key = key
+    this.left = left
+    this.right = right
 }
 
 
-function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
+// Class of Tree
+// -- constructor
+function Tree(node=new Node()) {
+    this.root = new Node(node.key, node.left, node.right)
+
+
+    // private function for deepCopy of Object
+    this._copyObj = function (obj) {
+        return Object.assign({}, obj)
+    }
+
+    // Check for empty Object
+    this.isEmpty = function (obj) {
+        return Object.keys(obj).length === 0;
+    }
+
+    // Function of addNode
+    // Tish function get root from which it have to add Node
+    // and return Object, that is copy of root, but with added Node
+    // -- recursive
+    this.addNode = function (root, node) {
+        let copyRoot = this._copyObj(root)
+
+        if (this.isEmpty(copyRoot)) copyRoot = this._copyObj(node)
+
+        if (node.key < copyRoot.key) copyRoot.left = this.addNode(copyRoot.left, node)
+        else if (node.key > copyRoot.key) copyRoot.right = this.addNode(copyRoot.right, node)
+
+        return copyRoot
+    }
+
+    // Print path to Node in Tree
+    // -- recursive
+    this.findNode = function (root, value) {
+        let path = '{' + root.key + '}'
+
+        if (value === root.key) return path
+        path += ' --'
+        let copyRoot = this._copyObj(root)
+
+        if (value < copyRoot.key) path += ('L--> ' + this.findNode(copyRoot.left, value))
+        else if (value > copyRoot.key) path += ('R--> ' + this.findNode(copyRoot.right, value))
+
+        return path
+    }
+
+
 }
 
+let secondNode = new Node(key = 2)
+let firstNode = new Node(3, secondNode)
 
-function addNode(tree, node) {
-    let copyTree = copyObj(tree)
+let tree = new Tree(firstNode)
 
-    if (isEmpty(copyTree)) copyTree = copyObj(node)
+let newNodes = [4, 0, 1, 6, 9, 5, 7]
 
-    if (node.key < copyTree.key) copyTree.left = addNode(copyTree.left, node)
-    else if (node.key > copyTree.key) copyTree.right = addNode(copyTree.right, node)
-
-    return copyTree
-}
-
-
-function findNode(root, value) {
-    let path = '{' + root.key + '}'
-
-    if (value === root.key) return path
-    path += ' --'
-    let copyRoot = copyObj(root)
-
-    if (value < copyRoot.key) path += ('L--> ' + findNode(copyRoot.left, value))
-    else if (value > copyRoot.key) path += ('R--> ' + findNode(copyRoot.right, value))
-
-    return path
-}
-
-
-function addNodePage() {
-    console.log('Empty function')
-}
-
-
-let secondNode = {key: 2, left: {}, right: {}}
-
-let tree = {
-    key: 3,
-    left: secondNode,
-    right: {}
-}
-
-tree = addNode(tree, { key: 4, left: {}, right: {} })
-tree = addNode(tree, { key: 0, left: {}, right: {} })
-tree = addNode(tree, { key: 1, left: {}, right: {} })
-tree = addNode(tree, { key: 6, left: {}, right: {} })
-tree = addNode(tree, { key: 5, left: {}, right: {} })
-tree = addNode(tree, { key: 7, left: {}, right: {} })
+for (let index in newNodes)
+    tree.root = tree.addNode(tree.root, new Node(newNodes[index]))
 
 console.log(tree)
 
-for (let i = 0; i < 8; i++) console.log(findNode(tree, i))
+newNodes.push(2, 3)
+
+for (let index in newNodes)
+    console.log(tree.findNode(tree.root, newNodes[index]))
