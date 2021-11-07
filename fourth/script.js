@@ -1,5 +1,3 @@
-// Class of Node
-// -- constructor
 function Node(key=null, left={}, right={}) {
     this.key = key
     this.left = left
@@ -7,8 +5,6 @@ function Node(key=null, left={}, right={}) {
 }
 
 
-// Class of Tree
-// -- constructor
 function Tree(node=new Node()) {
     this.root = new Node(node.key, node.left, node.right)
 
@@ -24,7 +20,7 @@ function Tree(node=new Node()) {
     }
 
     // Function of addNode
-    // Tish function get root from which it have to add Node
+    // This function get root from which it have to add Node
     // and return Object, that is copy of root, but with added Node
     // -- recursive
     this.addNode = function (root, node) {

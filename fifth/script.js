@@ -17,7 +17,7 @@ function Helper() {
 
 
         for (let key in obj) {
-            if (typeof(obj[key]) === 'object') {
+            if (this.isObject(obj[key]) && key !== targetKey) {
                 res = this.hasKey(obj[key], targetKey)
             } else {
                 res = key === targetKey
@@ -31,7 +31,6 @@ function Helper() {
         return res
     }
 
-
     this._validateArg = function (obj) {
         if (!this.isObject(obj)) {
             console.error('Argument is not an object!')
@@ -43,10 +42,9 @@ function Helper() {
 
     this._toRoot = function(root, obj) {
         for (let key in obj) {
-            if (typeof(obj[key]) === 'object') {
+            if (this.isObject(obj[key])) {
                 this._toRoot(root, obj[key])
             } else {
-                // console.log('Set ' + key + ' to Root')
                 root[key] = obj[key]
             }
         }
@@ -58,7 +56,7 @@ function Helper() {
         if (!this._validateArg(obj)) return
 
         for (let key in obj) {
-            if (typeof(obj[key]) === 'object') {
+            if (this.isObject(obj[key])) {
                 this._toRoot(obj, obj[key])
                 delete obj[key]
             }
@@ -71,7 +69,7 @@ function Helper() {
         if (!this._validateArg(obj)) return res
 
         for (let key in obj) {
-            if (typeof(obj[key]) === 'object') {
+            if (this.isObject(obj[key]) && key !== searchedKey) {
                 if (!res) res = this.findValue(obj[key], searchedKey)
             } else if (key === searchedKey) {
                 res = obj[key]
@@ -87,7 +85,7 @@ function Helper() {
         let res = {}
 
         for (let key in obj) {
-            if (typeof(obj[key]) === 'object') {
+            if (this.isObject(obj[key])) {
                 res[key] = this.deepClone(obj[key])
             } else {
                 res[key] = obj[key]
@@ -102,7 +100,7 @@ function Helper() {
         let res = []
 
         for (let key in obj) {
-            if (typeof(obj[key]) === 'object') {
+            if (this.isObject(obj[key])) {
                 res.push(key+'{', ...this._getAllKeys(obj[key]),'}')
             } else {
                 res.push(key)
@@ -131,12 +129,13 @@ function Helper() {
 
         if (keyValidator) {
             for (let key in obj1) {
-                if (typeof(obj1[key]) === 'object') {
+                if (this.isObject(obj1[key])) {
                     res = this.isEqual(obj1[key], obj2[key])
                 } else {
                     res = obj1[key] === obj2[key]
                 }
 
+                if (!res) break
             }
 
             if (this._getAllKeys(obj1).length === 0) res = true
@@ -150,6 +149,14 @@ function Helper() {
 
 
 let helper = new Helper()
+let helperKeys = Object.keys(helper)
+for (let i in helperKeys) {
+    Object.defineProperties(helper, helperKeys[i], {
+        writable: false,
+        configurable: false
+    })
+}
+
 
 var mainObj = {
     a: 1,
@@ -191,8 +198,9 @@ console.log(copyObj)
 console.log('DEBUG == isEqual mainObj and copyObj: ' + helper.isEqual(mainObj, copyObj))
 console.log('-------------------------')
 
-console.log('DEBUG == is copyObj hasKey \'e2\' : ' + helper.hasKey(copyObj, 'e2'))
-console.log('DEBUG == get from mainObj value by key \'e2\' : ' + helper.findValue(mainObj, 'e2'))
+console.log('DEBUG == is copyObj hasKey \'c\' : ' + helper.hasKey(copyObj, 'c'))
+console.log('DEBUG == get from mainObj value by key \'c\' : ')
+console.log(helper.findValue(mainObj, 'c'))
 console.log('-------------------------')
 
 console.log('INFO  == let toPale newMainObj')
