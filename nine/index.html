@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>NetCracker</title>
+</head>
+<body>
+    <header>
+        <img src="img/programming-code-signs.png" alt="">
+
+        <div class="nav-bar">
+            <div class="nav-bar__item">NULL</div>
+            <div class="nav-bar__item">NULL
+                <ul class="nav-bar__item__dd">
+                    <li class="nav-bar__item__dd__item">NULL text</li>
+                    <li class="nav-bar__item__dd__item">NULL text</li>
+                    <li class="nav-bar__item__dd__item">NULL text</li>
+                    <li class="nav-bar__item__dd__item">NULL text</li>
+                </ul>
+            </div>
+            <div class="nav-bar__item">NULL</div>
+        </div>
+
+        <button onclick="alert('Hallo, world!!!111')" class="hallo-btn" id="halloButton">Hallo, world!!!</button>
+    </header>
+    
+    <div class="time-date-bar">
+        <div class="time-date-bar__date">06.02.2021</div>
+            <div class="time-date-bar__time">
+            <div class="time-date-bar__time__cur"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+            <div class="time-date-bar__time__item"></div>
+        </div>
+    </div>
+
+    <main>
+        <aside class="side-bar">
+            <div class="side-bar__file-block">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="first-check">
+                        <label for="first-check">New Folder</label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="second-check">
+                        <label for="second-check">New Folder</label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" id="third-check">
+                        <label for="third-check">New Folder</label>
+
+                        <ul class="side-bar__file-block__sub">
+                            <li class="side-bar__file-block__sub__file">ImageFile.png</li>
+                            <li class="side-bar__file-block__sub__file">ImageFile.png</li>
+                            <li class="side-bar__file-block__sub__file">ImageFile.png</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="side-bar__tools">
+                <span>Settings</span><br>
+                <span>About Us</span><br>
+                <span>etc.</span><br>
+            </div>
+        </aside>
+
+        <div class="task-window">
+            <div class="task-window__task-list">
+                <div class="task-window__task-list__title">List</div>
+                <div class="task-window__task-list__content">
+                    <textarea name="test-text" id="test-text"
+                              class="task-window__task-list__content__textarea"
+                              cols="30" rows="10"
+                              placeholder="Input you text"></textarea>
+                    <button onclick="checkTop()" class="task-window__task-list__content__btn">Check</button>
+                </div>
+            </div>
+            <div class="task-window__task-list">
+                <div class="task-window__task-list__title">In Progress</div>
+                <div id="res-container" class="task-window__task-list__content"></div>
+            </div>
+            <div class="task-window__task-list">
+                <div class="task-window__task-list__title">Done</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="image-block">
+            <a href="https://t.me/aleks_andr_19"><img src="img/telegram.png" alt=""></a>
+            <a href="https://github.com/Alex-Andr-19"><img src="img/github.png" alt=""></a>
+            <a href="https://vk.com/aleks_andr_19"><img src="img/vk-social-network-logo.png" alt=""></a>
+        </div>
+            <div class="water-mark">Created by @aleks_andr_19</div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
