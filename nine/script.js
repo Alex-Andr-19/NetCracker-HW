@@ -155,4 +155,5 @@ button.onclick = function() { alert(message + 'Button' + msgFromOnClick) }
 
 header.addEventListener('click', function() { alert(message + 'Header' + msgFromEvListen + captPhr) }, true)
 header.addEventListener('click', function() { alert(message + 'Header' + msgFromEvListen + bubblingPhr) })
-button.addEventListener('click', function() { alert(message + 'Button' + msgFromEvListen) })
+button.addEventListener('click', function() { alert(message + 'Button' + msgFromEvListen + '№1') })
+button.addEventListener('click', function() { alert(message + 'Button' + msgFromEvListen + '№2') })
