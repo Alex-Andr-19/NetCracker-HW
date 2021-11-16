@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Promises</title>
+</head>
+<body>
+
+    <span id="timer">00:00:00</span>
+
+    <h1>Logger</h1>
+    <textarea name="txtAr" id="logger" cols="50" rows="10" readonly></textarea>
+
+    <button onclick="toggleLoggingInterval()" id="toggleBtn">Stop log setInterval</button>
+    <br>
+
+    <button onclick="drawBoard()">Start draw Board by Promise</button>
+
+    <div class="loadBoard" id="loadBoard">
+        <div class="loadRow">
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+        </div>
+        <div class="loadRow">
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+        </div>
+        <div class="loadRow">
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+        </div>
+        <div class="loadRow">
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+        </div>
+        <div class="loadRow">
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+        </div>
+        <div class="loadRow">
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+            <div class="loadItem"></div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
